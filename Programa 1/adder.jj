@@ -1,0 +1,82 @@
+/* adder.jj Para tokenizer*/
+
+options{	
+			STATIC=false;
+		}
+// Bloque de instrucciones para definir el Parser		
+PARSER_BEGIN(adder)
+class adder{
+			public static void main(String[]args)
+			throws ParseException, TokenMgrError{
+			adder parser=new adder(System.in);
+			parser.Start();										
+				}
+		}			
+PARSER_END(adder)
+
+//Inicio de estados léxicos
+TOKEN:
+{
+	<PROGRAM: "program " > {System.out.println("PROGRAM->"+image);}
+	| <MAIN:" public static void main() "> {System.out.println("MAIN->"+image);}
+
+
+}
+
+TOKEN:{
+	<IDENTIFIER:["a"-"z","A"-"Z"] (["a"-"z","A"-"Z","0"-"9","_"])*>{System.out.println("IDENTIFIER ->"+image+"\r\n");}
+	
+	}
+
+TOKEN:{
+	<NUMBER:(["0"-"9"])+ >{System.out.println("NUMBER ->"+image);}
+	
+	}
+
+TOKEN:
+{
+	<LPAR:"(">{System.out.println("LPAR->"+image);}
+	| <RPAR:")">{System.out.println("RPAR->"+image);}
+	| <LBRACE:"{">{System.out.println("LBRACE->"+image);}
+	| <RBRACE:"}">{System.out.println("RBRACE->"+image);}
+	| <SEMICOLON:";">{System.out.println("SEMICOL->"+image);}
+}
+
+
+
+SKIP:{" "}
+
+SKIP:{"\n"|"\r"|"\r\n"|"\t"}
+
+//Fin de estados léxicos
+
+//Inicio de procedimientos para definir patrones
+void Start():
+{}
+{
+	Sentence()
+}
+
+void Block():
+{}
+{
+	Main()
+}
+
+void Main():
+{}
+{
+	<MAIN>
+	<LBRACE>Sentence()<RBRACE>
+}
+
+void Sentence():
+{}
+{
+	<NUMBER>
+	<IDENTIFIER>
+}
+
+
+
+

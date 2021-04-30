@@ -71,13 +71,13 @@ TOKEN:{
 //Tokens de operadores relacionales
 TOKEN:{
 	<AND:"&&" >{System.out.println("AND-> "+image+"\r\n");}
-	<OR:"||" >{System.out.println("OR-> "+image+"\r\n");}
-	<SAMEAS:"==" >{System.out.println("SAMEAS-> "+image+"\r\n");}
-	<GREATER:">" >{System.out.println("GREATER-> "+image+"\r\n");}
-	<LESSER:"<" >{System.out.println("LESSER-> "+image+"\r\n");}
-	<GREATSAME:">=" >{System.out.println("GREATSAME-> "+image+"\r\n");}
-	<LESSAME:"<=" >{System.out.println("LESSAME-> "+image+"\r\n");}
-	<DIFFERENT:"<>" >{System.out.println("DIFFERENT-> "+image+"\r\n");}
+	|<OR:"||" >{System.out.println("OR-> "+image+"\r\n");}
+	|<SAMEAS:"==" >{System.out.println("SAMEAS-> "+image+"\r\n");}
+	|<GREATER:">" >{System.out.println("GREATER-> "+image+"\r\n");}
+	|<LESSER:"<" >{System.out.println("LESSER-> "+image+"\r\n");}
+	|<GREATSAME:">=" >{System.out.println("GREATSAME-> "+image+"\r\n");}
+	|<LESSAME:"<=" >{System.out.println("LESSAME-> "+image+"\r\n");}
+	|<DIFFERENT:"<>" >{System.out.println("DIFFERENT-> "+image+"\r\n");}
 }
 
 SKIP:{" "}

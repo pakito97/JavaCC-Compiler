@@ -53,11 +53,16 @@ class adder implements adderConstants {
   private int jj_gen;
   final private int[] jj_la1 = new int[1];
   static private int[] jj_la1_0;
+  static private int[] jj_la1_1;
   static {
 	   jj_la1_init_0();
+	   jj_la1_init_1();
 	}
 	private static void jj_la1_init_0() {
-	   jj_la1_0 = new int[] {0x18,};
+	   jj_la1_0 = new int[] {0x28,};
+	}
+	private static void jj_la1_init_1() {
+	   jj_la1_1 = new int[] {0x0,};
 	}
 
   /** Constructor with InputStream. */
@@ -182,7 +187,7 @@ class adder implements adderConstants {
   /** Generate ParseException. */
   public ParseException generateParseException() {
 	 jj_expentries.clear();
-	 boolean[] la1tokens = new boolean[15];
+	 boolean[] la1tokens = new boolean[35];
 	 if (jj_kind >= 0) {
 	   la1tokens[jj_kind] = true;
 	   jj_kind = -1;
@@ -193,10 +198,13 @@ class adder implements adderConstants {
 		   if ((jj_la1_0[i] & (1<<j)) != 0) {
 			 la1tokens[j] = true;
 		   }
+		   if ((jj_la1_1[i] & (1<<j)) != 0) {
+			 la1tokens[32+j] = true;
+		   }
 		 }
 	   }
 	 }
-	 for (int i = 0; i < 15; i++) {
+	 for (int i = 0; i < 35; i++) {
 	   if (la1tokens[i]) {
 		 jj_expentry = new int[1];
 		 jj_expentry[0] = i;

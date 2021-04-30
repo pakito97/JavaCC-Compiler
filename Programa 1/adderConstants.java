@@ -15,17 +15,57 @@ public interface adderConstants {
   /** RegularExpression Id. */
   int IDENTIFIER = 3;
   /** RegularExpression Id. */
-  int NUMBER = 4;
+  int IDREACH = 4;
   /** RegularExpression Id. */
-  int LPAR = 5;
+  int NUMBER = 5;
   /** RegularExpression Id. */
-  int RPAR = 6;
+  int NUMTYPES = 6;
   /** RegularExpression Id. */
-  int LBRACE = 7;
+  int FLOATTYPE = 7;
   /** RegularExpression Id. */
-  int RBRACE = 8;
+  int BOOLTYPE = 8;
   /** RegularExpression Id. */
-  int SEMICOLON = 9;
+  int LPAR = 9;
+  /** RegularExpression Id. */
+  int RPAR = 10;
+  /** RegularExpression Id. */
+  int LBRACE = 11;
+  /** RegularExpression Id. */
+  int RBRACE = 12;
+  /** RegularExpression Id. */
+  int SEMICOLON = 13;
+  /** RegularExpression Id. */
+  int FOR = 14;
+  /** RegularExpression Id. */
+  int DO = 15;
+  /** RegularExpression Id. */
+  int WHILE = 16;
+  /** RegularExpression Id. */
+  int EQUALS = 17;
+  /** RegularExpression Id. */
+  int SUM = 18;
+  /** RegularExpression Id. */
+  int MINUS = 19;
+  /** RegularExpression Id. */
+  int MULT = 20;
+  /** RegularExpression Id. */
+  int DIVIDE = 21;
+  /** RegularExpression Id. */
+  int AND = 22;
+  /** RegularExpression Id. */
+  int OR = 23;
+  /** RegularExpression Id. */
+  int SAMEAS = 24;
+  /** RegularExpression Id. */
+  int GREATER = 25;
+  /** RegularExpression Id. */
+  int LESSER = 26;
+  /** RegularExpression Id. */
+  int GREATSAME = 27;
+  /** RegularExpression Id. */
+  int LESSAME = 28;
+  /** RegularExpression Id. */
+  int DIFFERENT = 29;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -36,12 +76,32 @@ public interface adderConstants {
     "\"program \"",
     "\" public static void main() \"",
     "<IDENTIFIER>",
+    "<IDREACH>",
     "<NUMBER>",
+    "<NUMTYPES>",
+    "<FLOATTYPE>",
+    "<BOOLTYPE>",
     "\"(\"",
     "\")\"",
     "\"{\"",
     "\"}\"",
     "\";\"",
+    "\"for \"",
+    "\"do \"",
+    "\"while \"",
+    "\"=\"",
+    "\"+\"",
+    "\"-\"",
+    "\"*\"",
+    "\"/\"",
+    "\"&&\"",
+    "\"||\"",
+    "\"==\"",
+    "\">\"",
+    "\"<\"",
+    "\">=\"",
+    "\"<=\"",
+    "\"<>\"",
     "\" \"",
     "\"\\n\"",
     "\"\\r\"",

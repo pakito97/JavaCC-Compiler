@@ -1,4 +1,3 @@
 public static void main() {
-Daniel
-51
+	int test;
 }

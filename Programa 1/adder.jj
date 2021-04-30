@@ -70,8 +70,8 @@ TOKEN:{
 
 //Tokens de operadores relacionales
 TOKEN:{
-	<AND:"&& " >{System.out.println("AND-> "+image+"\r\n");}
-	|<OR:"|| " >{System.out.println("OR-> "+image+"\r\n");}
+	<AND:"&& "|"bitand " >{System.out.println("AND-> "+image+"\r\n");}
+	|<OR:"|| "|"bitor " >{System.out.println("OR-> "+image+"\r\n");}
 	|<SAMEAS:"== " >{System.out.println("SAMEAS-> "+image+"\r\n");}
 	|<GREATER:"> " >{System.out.println("GREATER-> "+image+"\r\n");}
 	|<LESSER:"< " >{System.out.println("LESSER-> "+image+"\r\n");}
@@ -88,8 +88,8 @@ TOKEN:{
 void Start():
 {}
 {
-	//Sentence()|NumberTypes()|Symbols()|Loops()|AritmOp()|RelatOp()
-	Block()
+	Block()|NumberTypes()|Symbols()|Loops()|AritmOp()|RelatOp()
+	
 }
 
 void Block():
@@ -108,9 +108,8 @@ void Main():
 void Sentence():
 {}
 {
-	<NUMBER> 
-	|<IDENTIFIER>
-	|<EOF>
+	<NUMTYPES><IDENTIFIER><SEMICOLON>
+	|<FLOATTYPE><IDENTIFIER><SEMICOLON>
 }
 
 void NumberTypes():

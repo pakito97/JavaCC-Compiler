@@ -90,7 +90,7 @@ SKIP:{"\n"|"\r"|"\r\n"|"\t"}
 void Start():
 {}
 {
-	Sentence()
+	Sentence()|NumberTypes()|Symbols()|Loops()|AritmOp()|RelatOp()
 }
 
 void Block():
@@ -109,7 +109,37 @@ void Main():
 void Sentence():
 {}
 {
-	<NUMBER>|<IDENTIFIER>
+	<NUMBER> | <IDENTIFIER>
+}
+
+void NumberTypes():
+{}
+{
+	<NUMTYPES> | <FLOATTYPE> | <BOOLTYPE>	
+}
+
+void Symbols():
+{}
+{
+	<LPAR>|<RPAR>|<LBRACE>|<RBRACE>|<SEMICOLON>
+}
+
+void Loops():
+{}
+{
+	<FOR> | <DO> | <WHILE>
+}
+
+void AritmOp():
+{}
+{
+	<EQUALS>|<SUM>|<MINUS>|<MULT>|<DIVIDE>
+}
+
+void RelatOp():
+{}
+{
+	<AND>|<OR>|<SAMEAS>|<GREATER>|<LESSER>|<GREATSAME>|<LESSAME>|<DIFFERENT>
 }
 
 

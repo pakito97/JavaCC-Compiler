@@ -19,20 +19,30 @@ TOKEN:
 {
 	<PROGRAM: "program " > {System.out.println("PROGRAM->"+image);}
 	| <MAIN:" public static void main() "> {System.out.println("MAIN->"+image);}
-
+	
 
 }
 
+//Token para identificadores de usuario
 TOKEN:{
 	<IDENTIFIER:["a"-"z","A"-"Z"] (["a"-"z","A"-"Z","0"-"9","_"])*>{System.out.println("IDENTIFIER ->"+image+"\r\n");}
-	
+	|<IDREACH:"public"|"private"|"protected" > {System.out.println("IDREACH->"+image+"\r\n")}
 	}
 
+//Tokens para números
 TOKEN:{
 	<NUMBER:(["0"-"9"])+ >{System.out.println("NUMBER ->"+image);}
 	
 	}
+	
+	//Tokens de tipos de numeros
+	TOKEN:{
+		<NUMTYPES:("int"|"byte"|"short"|"long"|"sbyte"|"ushort"|"ulong")>{System.out.println("NUMTYPES-> "+image+"\r\n")}
+		|<FLOATTYPE:("float"|"double"|"decimal")>{System.out.println("FLOATTYPE-> "+image+"\r\n")}
+		|<BOOLTYPE:"true"|"false">{System.out.println("BOOLTYPE-> "+image+"\r\n")}
+	}
 
+//Tokens de símbolos
 TOKEN:
 {
 	<LPAR:"(">{System.out.println("LPAR->"+image);}
@@ -42,7 +52,33 @@ TOKEN:
 	| <SEMICOLON:";">{System.out.println("SEMICOL->"+image);}
 }
 
+//Tokens para bloques repetitivos, control de flujo
+TOKEN:{
+	<FOR:"for ">{System.out.println("FORLOOP-> "+image+"\r\n")}
+	| <DO:"do ">{System.out.println("DOLOOP-> "+image)+"\r\n"}
+	|<WHILE:"while ">{System.out.println("WHILELOOP-> "+image+"\r\n")}	
+}
 
+//Tokens para operadores aritmeticos
+TOKEN:{
+	<EQUALS:"=">{System.out.println("EQUALS-> "+image+"\r\n")}
+	|<SUM:"+">{System.out.println("SUM-> "+image+"\r\n")}
+	|<MINUS:"-">{System.out.println("MINUS-> "+image+"\r\n")}
+	|<MULT:"*">{System.out.println("MULT->"+image+"\r\n")}
+	|<DIVIDE:"/">{System.out.println("DIVIDE-> "+image+"\r\n")}
+}
+
+//Tokens de operadores relacionales
+TOKEN:{
+	<AND:"&&" >{System.out.println("AND-> "+image+"\r\n")}
+	<OR:"||" >{System.out.println("OR-> "+image+"\r\n")}
+	<SAMEAS:"==" >{System.out.println("SAMEAS-> "+image+"\r\n")}
+	<GREATER:">" >{System.out.println("GREATER-> "+image+"\r\n")}
+	<LESSER:"<" >{System.out.println("LESSER-> "+image+"\r\n")}
+	<GREATSAME:">=" >{System.out.println("GREATSAME-> "+image+"\r\n")}
+	<LESSAME:"<=" >{System.out.println("LESSAME-> "+image+"\r\n")}
+	<DIFFERENT:"<>" >{System.out.println("DIFFERENT-> "+image+"\r\n")}
+}
 
 SKIP:{" "}
 

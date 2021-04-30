@@ -15,33 +15,33 @@ class adder{
 PARSER_END(adder)
 
 //Inicio de estados léxicos
-TOKEN:
-{
-	<PROGRAM: "program " > {System.out.println("PROGRAM->"+image);}
-	| <MAIN:" public static void main() "> {System.out.println("MAIN->"+image);}
-	
 
-}
+SKIP:{" " | "\n" | "\r" | "\r\n" | "\t"}
+
 
 //Token para identificadores de usuario
 TOKEN:{
+	//<IDREACH:"public "|"private "|"protected " > {System.out.println("IDREACH->"+image+"\r\n");}
 	<IDENTIFIER:["a"-"z","A"-"Z"] (["a"-"z","A"-"Z","0"-"9","_"])*>{System.out.println("IDENTIFIER ->"+image+"\r\n");}
-	|<IDREACH:"public"|"private"|"protected" > {System.out.println("IDREACH->"+image+"\r\n");}
+	|<STRING : ["a"-"z","A"-"Z","0"-"9"](["a"-"z","A"-"Z","0"-"9"])*>{System.out.print("STRING -> "+image+"\r\n");}
+	| <NUMBER : (["0"-"9"])+ > {System.out.print("NUM-> "+image+"\r\n");}
 	}
 
-//Tokens para números
-TOKEN:{
-	<NUMBER:(["0"-"9"])+ >{System.out.println("NUMBER ->"+image);}
-	
-	}
 	
 	//Tokens de tipos de numeros
-	TOKEN:{
-		<NUMTYPES:("int"|"byte"|"short"|"long"|"sbyte"|"ushort"|"ulong")>{System.out.println("NUMTYPES-> "+image+"\r\n");}
-		|<FLOATTYPE:("float"|"double"|"decimal")>{System.out.println("FLOATTYPE-> "+image+"\r\n");}
-		|<BOOLTYPE:"true"|"false">{System.out.println("BOOLTYPE-> "+image+"\r\n");}
+TOKEN:{
+		<NUMTYPES:("int "|"byte "|"short "|"long "|"sbyte "|"ushort "|"ulong ")>{System.out.println("NUMTYPES-> "+image+"\r\n");}
+		|<FLOATTYPE:("float "|"double "|"decimal ")>{System.out.println("FLOATTYPE-> "+image+"\r\n");}
+		|<BOOLTYPE:"true "|"false ">{System.out.println("BOOLTYPE-> "+image+"\r\n");}
 	}
+	
+TOKEN:
+{
+	<PROGRAM: "program " > {System.out.println("PROGRAM->"+image);}
+	| <MAIN:"public static void main() "> {System.out.println("MAIN->"+image);}
+	
 
+}
 //Tokens de símbolos
 TOKEN:
 {
@@ -61,28 +61,26 @@ TOKEN:{
 
 //Tokens para operadores aritmeticos
 TOKEN:{
-	<EQUALS:"=">{System.out.println("EQUALS-> "+image+"\r\n");}
-	|<SUM:"+">{System.out.println("SUM-> "+image+"\r\n");}
-	|<MINUS:"-">{System.out.println("MINUS-> "+image+"\r\n");}
-	|<MULT:"*">{System.out.println("MULT->"+image+"\r\n");}
-	|<DIVIDE:"/">{System.out.println("DIVIDE-> "+image+"\r\n");}
+	<EQUALS:"= ">{System.out.println("EQUALS-> "+image+"\r\n");}
+	|<SUM:"+ ">{System.out.println("SUM-> "+image+"\r\n");}
+	|<MINUS:"- ">{System.out.println("MINUS-> "+image+"\r\n");}
+	|<MULT:"* ">{System.out.println("MULT->"+image+"\r\n");}
+	|<DIVIDE:"/ ">{System.out.println("DIVIDE-> "+image+"\r\n");}
 }
 
 //Tokens de operadores relacionales
 TOKEN:{
-	<AND:"&&" >{System.out.println("AND-> "+image+"\r\n");}
-	|<OR:"||" >{System.out.println("OR-> "+image+"\r\n");}
-	|<SAMEAS:"==" >{System.out.println("SAMEAS-> "+image+"\r\n");}
-	|<GREATER:">" >{System.out.println("GREATER-> "+image+"\r\n");}
-	|<LESSER:"<" >{System.out.println("LESSER-> "+image+"\r\n");}
-	|<GREATSAME:">=" >{System.out.println("GREATSAME-> "+image+"\r\n");}
-	|<LESSAME:"<=" >{System.out.println("LESSAME-> "+image+"\r\n");}
-	|<DIFFERENT:"<>" >{System.out.println("DIFFERENT-> "+image+"\r\n");}
+	<AND:"&& " >{System.out.println("AND-> "+image+"\r\n");}
+	|<OR:"|| " >{System.out.println("OR-> "+image+"\r\n");}
+	|<SAMEAS:"== " >{System.out.println("SAMEAS-> "+image+"\r\n");}
+	|<GREATER:"> " >{System.out.println("GREATER-> "+image+"\r\n");}
+	|<LESSER:"< " >{System.out.println("LESSER-> "+image+"\r\n");}
+	|<GREATSAME:">= " >{System.out.println("GREATSAME-> "+image+"\r\n");}
+	|<LESSAME:"<= " >{System.out.println("LESSAME-> "+image+"\r\n");}
+	|<DIFFERENT:"<> " >{System.out.println("DIFFERENT-> "+image+"\r\n");}
 }
 
-SKIP:{" "}
 
-SKIP:{"\n"|"\r"|"\r\n"|"\t"}
 
 //Fin de estados léxicos
 
@@ -90,7 +88,8 @@ SKIP:{"\n"|"\r"|"\r\n"|"\t"}
 void Start():
 {}
 {
-	Sentence()|NumberTypes()|Symbols()|Loops()|AritmOp()|RelatOp()
+	//Sentence()|NumberTypes()|Symbols()|Loops()|AritmOp()|RelatOp()
+	Block()
 }
 
 void Block():
@@ -109,7 +108,9 @@ void Main():
 void Sentence():
 {}
 {
-	<NUMBER> | <IDENTIFIER>
+	<NUMBER> 
+	|<IDENTIFIER>
+	|<EOF>
 }
 
 void NumberTypes():

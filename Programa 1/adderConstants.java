@@ -9,63 +9,63 @@ public interface adderConstants {
   /** End of File. */
   int EOF = 0;
   /** RegularExpression Id. */
-  int PROGRAM = 1;
+  int IDENTIFIER = 6;
   /** RegularExpression Id. */
-  int MAIN = 2;
+  int STRING = 7;
   /** RegularExpression Id. */
-  int IDENTIFIER = 3;
+  int NUMBER = 8;
   /** RegularExpression Id. */
-  int IDREACH = 4;
+  int NUMTYPES = 9;
   /** RegularExpression Id. */
-  int NUMBER = 5;
+  int FLOATTYPE = 10;
   /** RegularExpression Id. */
-  int NUMTYPES = 6;
+  int BOOLTYPE = 11;
   /** RegularExpression Id. */
-  int FLOATTYPE = 7;
+  int PROGRAM = 12;
   /** RegularExpression Id. */
-  int BOOLTYPE = 8;
+  int MAIN = 13;
   /** RegularExpression Id. */
-  int LPAR = 9;
+  int LPAR = 14;
   /** RegularExpression Id. */
-  int RPAR = 10;
+  int RPAR = 15;
   /** RegularExpression Id. */
-  int LBRACE = 11;
+  int LBRACE = 16;
   /** RegularExpression Id. */
-  int RBRACE = 12;
+  int RBRACE = 17;
   /** RegularExpression Id. */
-  int SEMICOLON = 13;
+  int SEMICOLON = 18;
   /** RegularExpression Id. */
-  int FOR = 14;
+  int FOR = 19;
   /** RegularExpression Id. */
-  int DO = 15;
+  int DO = 20;
   /** RegularExpression Id. */
-  int WHILE = 16;
+  int WHILE = 21;
   /** RegularExpression Id. */
-  int EQUALS = 17;
+  int EQUALS = 22;
   /** RegularExpression Id. */
-  int SUM = 18;
+  int SUM = 23;
   /** RegularExpression Id. */
-  int MINUS = 19;
+  int MINUS = 24;
   /** RegularExpression Id. */
-  int MULT = 20;
+  int MULT = 25;
   /** RegularExpression Id. */
-  int DIVIDE = 21;
+  int DIVIDE = 26;
   /** RegularExpression Id. */
-  int AND = 22;
+  int AND = 27;
   /** RegularExpression Id. */
-  int OR = 23;
+  int OR = 28;
   /** RegularExpression Id. */
-  int SAMEAS = 24;
+  int SAMEAS = 29;
   /** RegularExpression Id. */
-  int GREATER = 25;
+  int GREATER = 30;
   /** RegularExpression Id. */
-  int LESSER = 26;
+  int LESSER = 31;
   /** RegularExpression Id. */
-  int GREATSAME = 27;
+  int GREATSAME = 32;
   /** RegularExpression Id. */
-  int LESSAME = 28;
+  int LESSAME = 33;
   /** RegularExpression Id. */
-  int DIFFERENT = 29;
+  int DIFFERENT = 34;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -73,14 +73,19 @@ public interface adderConstants {
   /** Literal token values. */
   String[] tokenImage = {
     "<EOF>",
-    "\"program \"",
-    "\" public static void main() \"",
+    "\" \"",
+    "\"\\n\"",
+    "\"\\r\"",
+    "\"\\r\\n\"",
+    "\"\\t\"",
     "<IDENTIFIER>",
-    "<IDREACH>",
+    "<STRING>",
     "<NUMBER>",
     "<NUMTYPES>",
     "<FLOATTYPE>",
     "<BOOLTYPE>",
+    "\"program \"",
+    "\"public static void main() \"",
     "\"(\"",
     "\")\"",
     "\"{\"",
@@ -89,24 +94,19 @@ public interface adderConstants {
     "\"for \"",
     "\"do \"",
     "\"while \"",
-    "\"=\"",
-    "\"+\"",
-    "\"-\"",
-    "\"*\"",
-    "\"/\"",
-    "\"&&\"",
-    "\"||\"",
-    "\"==\"",
-    "\">\"",
-    "\"<\"",
-    "\">=\"",
-    "\"<=\"",
-    "\"<>\"",
-    "\" \"",
-    "\"\\n\"",
-    "\"\\r\"",
-    "\"\\r\\n\"",
-    "\"\\t\"",
+    "\"= \"",
+    "\"+ \"",
+    "\"- \"",
+    "\"* \"",
+    "\"/ \"",
+    "\"&& \"",
+    "\"|| \"",
+    "\"== \"",
+    "\"> \"",
+    "\"< \"",
+    "\">= \"",
+    "\"<= \"",
+    "\"<> \"",
   };
 
 }

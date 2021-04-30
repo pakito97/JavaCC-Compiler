@@ -1,2 +1,4 @@
-{
+public static void main() {
+Daniel
+51
 }

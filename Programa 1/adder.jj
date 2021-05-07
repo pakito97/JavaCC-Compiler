@@ -80,7 +80,36 @@ TOKEN:{
 	|<DIFFERENT:"<> " >{System.out.println("DIFFERENT-> "+image+"\r\n");}
 }
 
-
+//10 nuevos componentes lexicos Marco
+//Tokens de tipo de valor
+TOKEN:{
+   <STRUCTTYPE:"struct " >{System.out.println("STRUCTTYPE-> "+image+"\r\n");}
+   |<VOIDTYPE:"void " >{System.out.println("VOIDTYPE-> "+image+"\r\n");}
+   |<YOOLTYPE:"yool " >{System.out.println("VOIDTYPE-> "+image+"\r\n");}
+}
+//Tokens para declarar clase
+TOKEN:{
+   <LONG:"long " >{System.out.println("LONG-> "+image+"\r\n");}
+   |<BOOL:"bool " >{System.out.println("BOOL-> "+image+"\r\n");}
+   |<CHAR:"char " >{System.out.println("CHAR-> "+image+"\r\n");}
+   |<CLASS:"class " >{System.out.println("CLASS-> "+image+"\r\n");}
+}
+//tokens  de etiquetas 
+TOKEN:{
+	<CASE:"case " >{System.out.println("CASE-> "+image+"\r\n");}
+	|<ING:"ing " >{System.out.println("ING-> "+image+"\r\n");}
+}
+//tokens estructura repetitivas
+TOKEN:{
+    <FOREACH:"foreach " >{System.out.println("FOREACH-> "+image+"\r\n");}
+    |<INGFER:"ingfer " >{System.out.println("INGFER-> "+image+"\r\n");}
+}
+//tokens de clausula
+TOKEN:{
+    <CATCH:"catch " >{System.out.println("CATCH-> "+image+"\r\n");}
+    |<EXCEPT:"except " >{System.out.println("EXCEPT-> "+image+"\r\n");}
+	|<RAISE:"raise " >{System.out.println("RAISE-> "+image+"\r\n");}
+}
 
 //Fin de estados léxicos
 
@@ -88,7 +117,8 @@ TOKEN:{
 void Start():
 {}
 {
-	Block()|NumberTypes()|Symbols()|Loops()|AritmOp()|RelatOp()
+	Block()|NumberTypes()|Symbols()|Loops()|AritmOp()|RelatOp()|ValType()|DeclarClass()|EquiCase()|EstrucRep()|Clause()
+	
 	
 }
 
@@ -142,6 +172,28 @@ void RelatOp():
 	<AND>|<OR>|<SAMEAS>|<GREATER>|<LESSER>|<GREATSAME>|<LESSAME>|<DIFFERENT>
 }
 
-
-
-
+void ValType():
+{}
+{
+	<STRUCTTYPE>|<VOIDTYPE>|<YOOLTYPE>
+}
+void DeclarClass():
+{}
+{ 
+        <LONG>|<BOOL>|<CHAR>|<CLASS>
+}
+void EquiCase():
+{}
+{
+        <CASE>|<ING>
+}
+void EstrucRep():
+{}
+{
+        <FOREACH>|<INGFER>
+}
+void Clause():
+{}
+{
+       <CATCH>|<EXCEPT>|<RAISE>
+}

@@ -140,14 +140,62 @@ TOKEN:{
 //Fin de estados léxicos
 
 //Inicio de procedimientos para definir patrones
+
 void Start():
 {}
 {
-	Block()|NumberTypes()|Symbols()|Loops()|AritmOp()|RelatOp()|ValType()|DeclarClass()|EquiCase()|EstrucRep()|Clause()
-	
+	<MAIN>
+	|<LBRACE>
+	|<RBRACE>
+	|<NUMTYPES>
+	|<IDENTIFIER>
+	|<SEMICOLON>
+	|<FLOATTYPE>
+	|<IDENTIFIER>
+	|<SEMICOLON>
+	| <BOOLTYPE>	
+	|<LPAR>
+	|<RPAR>
+	|<FOR> 
+	| <DO> 
+	| <WHILE>
+	|<EQUALS>
+	|<SUM>
+	|<MINUS>
+	|<MULT>
+	|<DIVIDE>
+	|<AND>
+	|<OR>
+	|<SAMEAS>
+	|<GREATER>
+	|<LESSER>
+	|<GREATSAME>
+	|<LESSAME>
+	|<DIFFERENT>
+	<STRUCTTYPE>
+	|<VOIDTYPE>
+	|<YOOLTYPE>
+	| <LONG>
+	|<BOOL>
+	|<CHAR>
+	|<CLASS>
+	|<CASE>
+	|<ING>
+	| <FOREACH>
+	|<INGFER>
+	| <CATCH>
+	|<EXCEPT>
+	|<RAISE>
+	|<IFSTRUCT>
+	|<SWITCHSTRUCT>
+	|<PRINTOUT>
+	|<TRYBLOCK>
+	|<CLASSTYPE>
+	|<STRINGTYPE>
+	|<CHARTYPE>
 	
 }
-
+/*
 void Block():
 {}
 {
@@ -223,3 +271,5 @@ void Clause():
 {
        <CATCH>|<EXCEPT>|<RAISE>
 }
+
+*/

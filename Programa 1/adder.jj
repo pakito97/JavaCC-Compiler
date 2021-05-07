@@ -91,7 +91,6 @@ TOKEN:{
 TOKEN:{
    <LONG:"long " >{System.out.println("LONG-> "+image+"\r\n");}
    |<BOOL:"bool " >{System.out.println("BOOL-> "+image+"\r\n");}
-   |<CHAR:"char " >{System.out.println("CHAR-> "+image+"\r\n");}
    |<CLASS:"class " >{System.out.println("CLASS-> "+image+"\r\n");}
 }
 //tokens  de etiquetas 
@@ -115,7 +114,7 @@ TOKEN:{
 //Tokens de tipo de datos alfanumericos
 TOKEN:{
 	<STRINGTYPE:("string ")>{System.out.println("STRINGTYPE-> "+image+"\r\n");}
-	<CHARTYPE:("char ")>{System.out.println("CHARTYPE-> "+image+"\r\n");}
+	|<CHARTYPE:("char ")>{System.out.println("CHARTYPE-> "+image+"\r\n");}
 }
 
 //Tokens para declarar metodos y clases
@@ -126,7 +125,6 @@ TOKEN:{
 //Token de bloque try catch
 TOKEN:{
 	<TRYBLOCK:"try ">{System.out.println("TRYBLOCK-> "+image+"\r\n");}
-	<CATCHBLOCK:"catch ">{System.out.println("CATCHBLOCK-> "+image+"\r\n");}
 }
 
 //Token de imprimir a consola
@@ -137,7 +135,7 @@ TOKEN:{
 //Token para delclaraciones de seleccion
 TOKEN:{
 	<IFSTRUCT: "if | else "> {System.out.println("IFSTRUCT-> "+image+"\r\n");}
-	<SWITCHSTRUCT:"switch | stoom "> {System.out.println("SWITCHSTRUCT-> "+image+"\r\n");}
+	|<SWITCHSTRUCT:"switch | stoom "> {System.out.println("SWITCHSTRUCT-> "+image+"\r\n");}
 }
 //Fin de estados léxicos
 

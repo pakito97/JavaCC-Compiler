@@ -21,8 +21,8 @@ SKIP:{" " | "\n" | "\r" | "\r\n" | "\t"}
 
 //Token para identificadores de usuario
 TOKEN:{
-	//<IDREACH:"public "|"private "|"protected " > {System.out.println("IDREACH->"+image+"\r\n");}
-	<IDENTIFIER:["a"-"z","A"-"Z"] (["a"-"z","A"-"Z","0"-"9","_"])*>{System.out.println("IDENTIFIER ->"+image+"\r\n");}
+	<IDREACH:"public "|"private "|"protected " > {System.out.println("IDREACH->"+image+"\r\n");}
+	|<IDENTIFIER:["a"-"z","A"-"Z"] (["a"-"z","A"-"Z","0"-"9","_"])*>{System.out.println("IDENTIFIER ->"+image+"\r\n");}
 	|<STRING : ["a"-"z","A"-"Z","0"-"9"](["a"-"z","A"-"Z","0"-"9"])*>{System.out.print("STRING -> "+image+"\r\n");}
 	| <NUMBER : (["0"-"9"])+ > {System.out.print("NUM-> "+image+"\r\n");}
 	}
@@ -134,7 +134,8 @@ TOKEN:{
 
 //Token para delclaraciones de seleccion
 TOKEN:{
-	<IFSTRUCT: "if | else "> {System.out.println("IFSTRUCT-> "+image+"\r\n");}
+	<IFSTRUCT: "if "> {System.out.println("IFSTRUCT-> "+image+"\r\n");}
+	|<ELSE: "else "> {System.out.println("ELSE-> "+image+"\r\n");}
 	|<SWITCHSTRUCT:"switch | stoom "> {System.out.println("SWITCHSTRUCT-> "+image+"\r\n");}
 }
 //Fin de estados léxicos
@@ -193,6 +194,7 @@ void Start():
 	|<CLASSTYPE>
 	|<STRINGTYPE>
 	|<CHARTYPE>
+	|<ELSE>
 	
 }
 /*

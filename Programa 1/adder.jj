@@ -38,7 +38,7 @@ TOKEN:{
 TOKEN:
 {
 	<PROGRAM: "program " > {System.out.println("PROGRAM->"+image);}
-	| <MAIN:"public static void main() "> {System.out.println("MAIN->"+image);}
+	| <MAIN:"public static void main() "> {System.out.println(image);}
 	
 
 }
@@ -122,7 +122,7 @@ TOKEN:{
 
 //Token de bloque try catch
 TOKEN:{
-	<TRYBLOCK:"try ">{System.out.println("TRYBLOCK-> "+image+"\r\n");}
+	<TRYBLOCK:"try ">{System.out.println();}
 }
 
 //Token de imprimir a consola
